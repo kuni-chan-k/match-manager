@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# match-manager（フロントエンド完結版）
 
-## Getting Started
+「Reactで作る！フロントエンド完結アプリ開発」のサンプルコードです。
 
-First, run the development server:
+## 機能
+
+- 大会の作成・編集・削除
+- チームの管理
+- 試合の登録・スコア入力
+- 順位表の自動計算（勝点・得失点差・総得点でソート）
+
+## 技術スタック
+
+- Next.js 15 (App Router)
+- React 18
+- TypeScript
+- Tailwind CSS
+- localStorage（データ永続化）
+
+## セットアップ
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 でアプリが起動します。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ディレクトリ構成
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+match-manager/
+├── app/                    # ページ
+│   ├── competitions/       # 大会関連ページ
+│   ├── teams/              # チーム関連ページ
+│   ├── layout.tsx          # 全体レイアウト
+│   └── page.tsx            # ダッシュボード
+├── components/             # 共通コンポーネント
+│   ├── ui/                 # 汎用UIコンポーネント
+│   ├── layout/             # レイアウト関連
+│   └── StandingsTable.tsx  # 順位表コンポーネント
+└── lib/                    # ユーティリティ・ロジック
+    ├── types.ts            # 型定義
+    ├── data.ts             # データ管理（localStorage）
+    ├── standings.ts        # 順位計算
+    └── utils.ts            # ユーティリティ関数
+```
 
-## Learn More
+## 対応する書籍
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+https://zenn.dev/and_and_and/books/react-frontend-development
